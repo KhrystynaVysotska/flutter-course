@@ -41,7 +41,7 @@ class _RandomWordsState extends State<RandomWords> {
       ),
       trailing: Icon(
         alreadySaved ? Icons.favorite : Icons.favorite_border,
-        color: alreadySaved ? Colors.red : null,
+        color: alreadySaved ? Colors.deepPurple : null,
         semanticLabel: alreadySaved ? 'Remove from saved' : 'Save',
       ),
       onTap: () {
@@ -113,6 +113,15 @@ class _RandomWordsState extends State<RandomWords> {
         ],
       ),
       body: _buildSuggestions(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            _suggestions.insert(0, WordPair.random());
+          });
+        },
+        child: const Icon(Icons.add),
+        backgroundColor: Colors.deepPurple,
+      ),
     );
   }
 }
