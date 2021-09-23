@@ -112,6 +112,15 @@ class _RandomWordsState extends State<RandomWords> {
           ),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            _suggestions.insert(0, WordPair.random());
+          });
+        },
+        child: const Icon(Icons.add),
+        backgroundColor: Colors.deepPurple,
+      ),
       body: _buildSuggestions(),
     );
   }
